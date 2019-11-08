@@ -80,7 +80,18 @@ class LinkedListDoubly(object):
             head_copy.next = head_copy.next.next
             self.length -= 1
 
+    def reverse(self):
+        first = self.head
+        second = self.head.next
+        self.tail = self.head
 
+        while second:
+            temp = second.next
+            second.next = first
+            first = second
+            second = temp
+        self.head.next = None
+        self.head = first
 
     def __str__(self):
         out = ''
@@ -109,5 +120,6 @@ linkin.append(50)
 linkin.append(60)
 linkin.insert(5,3)
 linkin.delete(3)
+linkin.reverse()
 print(linkin.search(50))
 print(linkin)
